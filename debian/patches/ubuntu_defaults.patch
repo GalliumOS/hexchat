@@ -33,7 +33,7 @@ Bug-Ubuntu: https://bugs.launchpad.net/bugs/1390851
  							
  	if (serv->network)
 -		if (g_ascii_strcasecmp(((ircnet*)serv->network)->name, "freenode") == 0)
-+		if (g_ascii_strcasecmp(((ircnet*)serv->network)->name, "Ubuntu Servers (freenode)") == 0)
++		if (g_ascii_strcasecmp(((ircnet*)serv->network)->name, "GalliumOS Servers (freenode)") == 0)
  		{
 -			gtk_entry_set_text (GTK_ENTRY (entry1), "#hexchat");
 +			gtk_entry_set_text (GTK_ENTRY (entry1), "#galliumos");
