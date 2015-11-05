@@ -1,0 +1,3 @@
+src/common/chanopt.c
+src/common/inbound.c
+src/fe-text/fe-text.c

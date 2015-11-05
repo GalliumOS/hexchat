@@ -13,7 +13,7 @@ Bug-Ubuntu: https://bugs.launchpad.net/bugs/1390851
  	{0,			"irc.fef.net"},
  
 -	{"freenode", 0, 0, 0, LOGIN_SASL},
-+	{"Ubuntu Servers (freenode)", 0, 0, 0, LOGIN_SASL},
++	{"GalliumOS Servers (freenode)", 0, 0, 0, LOGIN_SASL},
  #ifdef USE_OPENSSL
  	{0,				"chat.freenode.net/+6697"},
  #endif
@@ -22,7 +22,7 @@ Bug-Ubuntu: https://bugs.launchpad.net/bugs/1390851
  	int i = 0, j = 0;
  	ircnet *net = NULL;
 -	guint def_hash = g_str_hash ("freenode");
-+	guint def_hash = g_str_hash ("Ubuntu Servers (freenode)");
++	guint def_hash = g_str_hash ("GalliumOS Servers (freenode)");
  
  	while (1)
  	{

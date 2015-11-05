@@ -1,0 +1,34 @@
+Description: Debian server defaults
+ Changed default network to OFTC, 
+ suggest to join #debian on OFTC and Freenode
+Author: Jesse Rhodes <drubo@drubo.net>
+
+--- hexchat-2.10.1.orig/src/common/servlist.c
++++ hexchat-2.10.1/src/common/servlist.c
+@@ -1151,7 +1151,7 @@ servlist_load_defaults (void)
+ {
+ 	int i = 0, j = 0;
+ 	ircnet *net = NULL;
+-	guint def_hash = g_str_hash ("freenode");
++	guint def_hash = g_str_hash ("OFTC");
+ 
+ 	while (1)
+ 	{
+--- hexchat-2.10.1.orig/src/fe-gtk/joind.c
++++ hexchat-2.10.1/src/fe-gtk/joind.c
+@@ -247,9 +247,14 @@ joind_show_dialog (server *serv)
+ 							G_CALLBACK (joind_ok_cb), serv);
+ 							
+ 	if (serv->network)
++		if (g_ascii_strcasecmp(((ircnet*)serv->network)->name, "OFTC") == 0)
++		{
++			gtk_entry_set_text (GTK_ENTRY (entry1), "#debian");
++			gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(radiobutton2), TRUE);
++		}
+ 		if (g_ascii_strcasecmp(((ircnet*)serv->network)->name, "freenode") == 0)
+ 		{
+-			gtk_entry_set_text (GTK_ENTRY (entry1), "#hexchat");
++			gtk_entry_set_text (GTK_ENTRY (entry1), "#debian");
+ 			gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(radiobutton2), TRUE);
+ 		}
+ 
