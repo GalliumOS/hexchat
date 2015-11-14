@@ -225,7 +225,7 @@ static const struct defaultserver def[] =
 	{"FEFNet", 0, 0, 0, LOGIN_SASL},
 	{0,			"irc.fef.net"},
 
-	{"GalliumOS Servers (freenode)", 0, 0, 0, LOGIN_SASL},
+	{"freenode", 0, 0, 0, LOGIN_SASL},
 #ifdef USE_OPENSSL
 	{0,				"chat.freenode.net/+6697"},
 #endif
@@ -1129,7 +1129,7 @@ servlist_load_defaults (void)
 {
 	int i = 0, j = 0;
 	ircnet *net = NULL;
-	guint def_hash = g_str_hash ("GalliumOS Servers (freenode)");
+	guint def_hash = g_str_hash ("freenode");
 
 	while (1)
 	{

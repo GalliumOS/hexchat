@@ -27,19 +27,18 @@
 #include <openssl/err.h>		  /* ERR_() */
 #ifdef WIN32
 #include <openssl/rand.h>		  /* RAND_seed() */
-#endif
+#include "../../config-win32.h"	  /* HAVE_SNPRINTF */
+#else
 #include "../../config.h"
+#endif
 #include <time.h>				  /* asctime() */
 #include <string.h>				  /* strncpy() */
 #include "ssl.h"				  /* struct cert_info */
 
+#ifndef HAVE_SNPRINTF
 #include <glib.h>
 #include <glib/gprintf.h>
-#include "util.h"
-
-/* If openssl was built without ec */
-#ifndef SSL_OP_SINGLE_ECDH_USE
-#define SSL_OP_SINGLE_ECDH_USE 0
+#define snprintf g_snprintf
 #endif
 
 /* globals */
@@ -58,7 +57,7 @@ __SSL_fill_err_buf (char *funcname)
 
 	err = ERR_get_error ();
 	ERR_error_string (err, buf);
-	g_snprintf (err_buf, sizeof (err_buf), "%s: %s (%d)\n", funcname, buf, err);
+	snprintf (err_buf, sizeof (err_buf), "%s: %s (%d)\n", funcname, buf, err);
 }
 
 
@@ -87,11 +86,6 @@ _SSL_context_init (void (*info_cb_func), int server)
 
 	SSL_CTX_set_session_cache_mode (ctx, SSL_SESS_CACHE_BOTH);
 	SSL_CTX_set_timeout (ctx, 300);
-	SSL_CTX_set_options (ctx, SSL_OP_NO_SSLv2|SSL_OP_NO_SSLv3
-							  |SSL_OP_NO_COMPRESSION
-							  |SSL_OP_SINGLE_DH_USE|SSL_OP_SINGLE_ECDH_USE
-							  |SSL_OP_NO_TICKET
-							  |SSL_OP_CIPHER_SERVER_PREFERENCE);
 
 	/* used in SSL_connect(), SSL_accept() */
 	SSL_CTX_set_info_callback (ctx, info_cb_func);
@@ -119,8 +113,8 @@ ASN1_TIME_snprintf (char *buf, int buf_len, ASN1_TIME * tm)
 	buf[0] = 0;
 	if (expires != NULL)
 	{
-		/* expires is not \0 terminated */
-		safe_strcpy (buf, expires, MIN(24, buf_len));
+		memset (buf, 0, buf_len);
+		strncpy (buf, expires, 24);
 	}
 	BIO_free (inMem);
 }
@@ -182,17 +176,17 @@ _SSL_get_cert_info (struct cert_info *cert_info, SSL * ssl)
 
 	peer_pkey = X509_get_pubkey (peer_cert);
 
-	safe_strcpy (cert_info->algorithm,
+	strncpy (cert_info->algorithm,
 				(alg == NID_undef) ? "Unknown" : OBJ_nid2ln (alg),
 				sizeof (cert_info->algorithm));
 	cert_info->algorithm_bits = EVP_PKEY_bits (peer_pkey);
-	safe_strcpy (cert_info->sign_algorithm,
+	strncpy (cert_info->sign_algorithm,
 				(sign_alg == NID_undef) ? "Unknown" : OBJ_nid2ln (sign_alg),
 				sizeof (cert_info->sign_algorithm));
 	/* EVP_PKEY_bits(ca_pkey)); */
 	cert_info->sign_algorithm_bits = 0;
-	safe_strcpy (cert_info->notbefore, notBefore, sizeof (cert_info->notbefore));
-	safe_strcpy (cert_info->notafter, notAfter, sizeof (cert_info->notafter));
+	strncpy (cert_info->notbefore, notBefore, sizeof (cert_info->notbefore));
+	strncpy (cert_info->notafter, notAfter, sizeof (cert_info->notafter));
 
 	EVP_PKEY_free (peer_pkey);
 
@@ -221,9 +215,9 @@ _SSL_get_cipher_info (SSL * ssl)
 
 
 	c = SSL_get_current_cipher (ssl);
-	safe_strcpy (chiper_info.version, SSL_CIPHER_get_version (c),
+	strncpy (chiper_info.version, SSL_CIPHER_get_version (c),
 				sizeof (chiper_info.version));
-	safe_strcpy (chiper_info.chiper, SSL_CIPHER_get_name (c),
+	strncpy (chiper_info.chiper, SSL_CIPHER_get_name (c),
 				sizeof (chiper_info.chiper));
 	SSL_CIPHER_get_bits (c, &chiper_info.chiper_bits);
 

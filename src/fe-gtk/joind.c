@@ -247,9 +247,9 @@ joind_show_dialog (server *serv)
 							G_CALLBACK (joind_ok_cb), serv);
 							
 	if (serv->network)
-		if (g_ascii_strcasecmp(((ircnet*)serv->network)->name, "GalliumOS Servers (freenode)") == 0)
+		if (g_ascii_strcasecmp(((ircnet*)serv->network)->name, "freenode") == 0)
 		{
-			gtk_entry_set_text (GTK_ENTRY (entry1), "#galliumos");
+			gtk_entry_set_text (GTK_ENTRY (entry1), "#hexchat");
 			gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(radiobutton2), TRUE);
 		}
 
