@@ -1,3 +1,9 @@
+hexchat (2.10.1-2galliumos2) vivid-galliumos; urgency=medium
+
+  * Update freenode name to "freenode (and #galliumos)"
+
+ -- reynhout <reynhout@galliumos.org>  Sat, 06 Feb 2016 16:56:29 +0000
+
 hexchat (2.10.1-2galliumos1) unstable; urgency=medium
 
   * Set package version to match provenance
