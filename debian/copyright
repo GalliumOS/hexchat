@@ -65,10 +65,6 @@ Files: po/*
 Copyright: Public Domain
 License: public-domain
 
-Files: intl/*
-Copyright: Free Software Foundation
-License: LGPL-2.1+
-
 Files: ltmain.sh
 Copyright: Free Software Foundation
 License: GPL-2+
@@ -81,18 +77,10 @@ Files: src/common/dbus/*
 Copyright: 2006 Claessens Xavier
 License: GPL-2+
 
-Files: src/fe-gtk/mmx_cmod.S
-Copyright: 1997-2001 Michael Jennings
-License: Expat
-
 Files: src/fe-gtk/sexy-iso*
 Copyright: 2005 Nathan Fredrickson
 	   2004 Christian Persch
 	   2004 Crispin Flowerday
-License: LGPL-2.1+
-
-Files: src/fe-gtk/sexy-marshal.*
-Copyright: 2005-2006 Christian Hammond
 License: LGPL-2.1+
 
 Files: src/fe-gtk/sexy-spell-entry.*
@@ -100,21 +88,9 @@ Copyright: 2004-2006 Christian Hammond
 	   2002 Evan Martin
 License: LGPL-2.1+
 
-Files: src/gtk2-prefs/*
-Copyright: 2003-2005 Alex Shaduri
-License: GPL-2+
-
 Files: src/htm/*
 Copyright: 2012 Patrick Griffs
 	   2012 Berke Viktor
-License: GPL-2+
-
-Files: plugins/ewc/*
-Copyright: Yann HAMON
-License: LGPL-2.1+
-
-Files: plugins/hextray/*
-Copyright: 2005 Michael Hotaling
 License: GPL-2+
 
 Files: plugins/mpcinfo/*

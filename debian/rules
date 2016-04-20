@@ -13,7 +13,7 @@ override_dh_auto_configure:
 
 override_dh_auto_build:
 	convert -resize 32x32 data/icons/hexchat.png debian/hexchat.xpm
-	gzip -c9 debian/changelog.txt > debian/changelog.gz
+	gzip -nc9 debian/changelog.txt > debian/changelog.gz
 	dh_auto_build
 
 override_dh_auto_clean:
@@ -27,3 +27,9 @@ override_dh_auto_clean:
 	rm -f debian/changelog.gz
 	rm -f debian/hexchat.xpm
 	dh_auto_clean
+	find . -name Makefile.in -exec rm -f {} \;
+	rm -f aclocal.m4
+	rm -f config.sub
+	rm -f configure
+	rm -f ltmain.sh
+	rm -f m4/libtool.m4

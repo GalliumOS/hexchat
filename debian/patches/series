@@ -1,5 +1,3 @@
 debian_defaults.patch
 no_translation.patch
 ff-iw.patch
-disable-ssl3.patch
-fix-perl-check.patch

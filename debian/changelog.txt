@@ -1,6 +1,42 @@
 HexChat ChangeLog
 =================
 
+2.10.2 (2014-11-25)
+-------------------
+
+- verify hostnames of certificates
+- use more secure openssl options (No SSLv2/3)
+- detect utf8 urls in chat
+- fix using multiple client certs at the same time
+- fix checking for Perl on some distros
+- fix friends list not properly updating
+- fix building with format-security
+- fix more non-ascii path issues on Windows
+- fix opening utf8 urls on Windows and OSX
+- update deps on Windows
+- update translations
+
+2.10.1 (2014-07-28)
+-------------------
+
+- add configure check for python 3.4
+- improve spell check handling apostrophes
+- disable unsupported tray feature on Elementary OS
+- disable installing on Vista (would just crash on x64)
+- fix possible crash in banlist
+- fix some crashes in pluginpref API
+- fix crash in spell check
+- fix notify list being sent to wrong networks
+- fix scrolling the chanview on Unix
+- fix building plugin support on some platforms (OS X 10.8)
+- fix FiSHLiM decryption when identify-msg is enabled
+- fix expanding *~user* on Unix
+- fix missing license files on Windows
+- fix silent installer on Windows
+- update translations
+- update network list
+- update Python versions on Windows
+
 2.10.0 (2014-06-01)
 -------------------
 

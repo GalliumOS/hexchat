@@ -1,20 +1,39 @@
-hexchat (2.10.1-2galliumos2) vivid-galliumos; urgency=medium
+hexchat (2.10.2-1ubuntu3) xenial; urgency=medium
 
-  * Update freenode name to "freenode (and #galliumos)"
+  * Rebuild for Perl 5.22.1.
 
- -- reynhout <reynhout@galliumos.org>  Sat, 06 Feb 2016 16:56:29 +0000
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 18 Dec 2015 11:12:26 +0000
 
-hexchat (2.10.1-2galliumos1) unstable; urgency=medium
+hexchat (2.10.2-1ubuntu2) wily; urgency=medium
 
-  * Set package version to match provenance
+  * debian/hexchat.install:
+    - don't install the manpage in two binaries
 
- -- reynhout <reynhout@galliumos.org>  Sun, 10 Jan 2016 21:05:33 +0000
+ -- Sebastien Bacher <seb128@ubuntu.com>  Thu, 15 Oct 2015 11:13:39 +0100
 
-hexchat (2.10.1-5) unstable; urgency=medium
+hexchat (2.10.2-1ubuntu1) wily; urgency=medium
 
-  * Fix ubuntu_defaults.patch for GalliumOS
+  * debian/hexchat.install:
+    - install files missing since the split, include pkgconfig needed 
+      to build xchat-gnome
 
- -- Hugh Greenberg <hugh@galliumos.org>  Wed, 04 Nov 2015 11:47:12 -0700
+ -- Sebastien Bacher <seb128@ubuntu.com>  Wed, 14 Oct 2015 13:40:06 +0100
+
+hexchat (2.10.2-1build1) wily; urgency=medium
+
+  * No-change rebuild against libproxy1v5
+
+ -- Steve Langasek <steve.langasek@ubuntu.com>  Mon, 10 Aug 2015 23:29:48 +0000
+
+hexchat (2.10.2-1) unstable; urgency=medium
+
+  * New upstream release
+  * Includes upstream fixes for POODLE vulnerability 
+    (CVE-2014-3566)
+  * Split plugins into modular packages rather than having all 
+    binaries in the main hexchat package
+
+ -- Jesse Rhodes <drubo@drubo.net>  Fri, 28 Nov 2014 18:35:39 -0700
 
 hexchat (2.10.1-2) unstable; urgency=medium
 
@@ -56,4 +75,3 @@ hexchat (2.9.6.1-1) unstable; urgency=low
   * Initial release (Closes: #702075)
 
  -- Jesse Rhodes <drubo@drubo.net>  Mon, 03 Feb 2014 19:09:17 -0700
-

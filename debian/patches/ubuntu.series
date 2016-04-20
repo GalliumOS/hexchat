@@ -1,4 +1,2 @@
 ubuntu_defaults.patch
 no_translation.patch
-disable-ssl3.patch
-fix-perl-check.patch
