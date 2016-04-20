@@ -1,3 +1,11 @@
+hexchat (2.10.2-1ubuntu3-galliumos1) xenon; urgency=medium
+
+  * re-apply GalliumOS patches
+    - set defaults to preselect freenode #galliumos
+    - add debian/galliumos/upstream
+
+ -- reynhout <reynhout@galliumos.org>  Wed, 20 Apr 2016 23:51:37 +0000
+
 hexchat (2.10.2-1ubuntu3) xenial; urgency=medium
 
   * Rebuild for Perl 5.22.1.
