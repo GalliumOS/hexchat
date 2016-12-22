@@ -1,3 +1,12 @@
+hexchat (2.12.0-2ubuntu2.1-galliumos1) xenon; urgency=medium
+
+  * Re-apply GalliumOS patches
+    - add patch: 0001-GalliumOS-server-defaults.patch
+    - update debian/patches/series to use preceding
+    - update debian/galliumos/upstream
+
+ -- reynhout <reynhout@galliumos.org>  Thu, 22 Dec 2016 03:00:35 +0000
+
 hexchat (2.12.0-2ubuntu2.1) yakkety; urgency=medium
 
   * Bump Breaks+Replaces of hexchat-plugins against hexchat.
