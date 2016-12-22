@@ -12,7 +12,6 @@ override_dh_auto_configure:
 
 
 override_dh_auto_build:
-	convert -resize 32x32 data/icons/hexchat.png debian/hexchat.xpm
 	gzip -nc9 debian/changelog.txt > debian/changelog.gz
 	dh_auto_build
 
@@ -33,3 +32,4 @@ override_dh_auto_clean:
 	rm -f configure
 	rm -f ltmain.sh
 	rm -f m4/libtool.m4
+	rm -f m4/glib-gettext.m4

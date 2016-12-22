@@ -1,5 +1,2 @@
-#debian_defaults.patch
-#no_translation.patch
-#ff-iw.patch
-ubuntu_defaults.patch
-no_translation.patch
+0001-Debian-server-defaults.patch 
+0003-build-both-python-plugins.patch

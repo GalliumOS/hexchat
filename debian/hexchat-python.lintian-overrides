@@ -1,2 +1,2 @@
-# source is confirmed as building with the default Debian compiler flags defined by dpkg-buildflags
-hexchat-python: hardening-no-fortify-functions usr/lib/*/hexchat/plugins/python.so
+# is virtual package
+hexchat-python: no-upstream-changelog

@@ -1,10 +1,44 @@
-hexchat (2.10.2-1ubuntu3-galliumos1) xenon; urgency=medium
+hexchat (2.12.0-2ubuntu2.1) yakkety; urgency=medium
 
-  * re-apply GalliumOS patches
-    - set defaults to preselect freenode #galliumos
-    - add debian/galliumos/upstream
+  * Bump Breaks+Replaces of hexchat-plugins against hexchat.
+    hexchat-plugin.pc has been moved after the main split, but the relationship
+    has not been updated.  LP: #1586239
 
- -- reynhout <reynhout@galliumos.org>  Wed, 20 Apr 2016 23:51:37 +0000
+ -- Mattia Rizzolo <mattia@debian.org>  Mon, 28 Nov 2016 16:48:03 +0100
+
+hexchat (2.12.0-2ubuntu2) yakkety; urgency=medium
+
+  * Update Breaks+Replaces, from seb128
+
+ -- Gianfranco Costamagna <locutusofborg@debian.org>  Tue, 24 May 2016 14:57:47 +0200
+
+hexchat (2.12.0-2ubuntu1) yakkety; urgency=low
+
+  * Merge from Debian unstable.  Remaining changes:
+    - debian/hexchat.install:
+      - install the service file.
+    - drop the pkgconfig delta, it is now part of the -plugins package
+
+ -- Gianfranco Costamagna <locutusofborg@debian.org>  Tue, 24 May 2016 13:55:39 +0200
+
+hexchat (2.12.0-2) unstable; urgency=medium
+
+  * Removed patch correcting for missing translations, 
+    as translations are no longer missing 
+  * Removed patch correcting spelling error that would break 
+    some scripts and themes
+  * Updated ubuntu server/channel defaults
+
+ -- Jesse Rhodes <drubo@drubo.net>  Wed, 30 Mar 2016 11:44:04 -0600
+
+hexchat (2.12.0-1) unstable; urgency=medium
+
+  * New upstream release
+  * Iceweasel no longer called Firefox in url dialog
+  * Building both python2 and python3 plugins
+  * Including hexchat-plugin.pc (Closes: 801767)
+
+ -- Jesse Rhodes <drubo@drubo.net>  Fri, 25 Mar 2016 10:54:57 -0600
 
 hexchat (2.10.2-1ubuntu3) xenial; urgency=medium
 

@@ -47,16 +47,6 @@ Copyright: 2003, 2004, 2005 Michael Shoup
 	   2005, 2006, 2007 Tony Vroon
 License: GPL-2+
 
-Files: plugins/sysinfo/sysinfo.cpp
-Copyright: 2011-2012 Berke Viktor
-License: Expat
-
-Files: plugins/sysinfo/xsys.c
-Copyright: 2012, Berke Viktor
-	   2003, 2004, 2005 Michael Shoup
-	   2005, 2006, 2007 Tony Vroon
-License: GPL-2+
-
 Files: plugins/perl/*
 Copyright: 1998-2002 Peter Zelezny
 License: GPL-2+

@@ -3,12 +3,11 @@ Section: net
 Priority: optional
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 XSBC-Original-Maintainer: Jesse Rhodes <drubo@drubo.net>
-Vcs-Browser: http://anonscm.debian.org/cgit/collab-maint/hexchat.git
-Vcs-git: git://anonscm.debian.org/collab-maint/hexchat.git
+Vcs-Browser: https://anonscm.debian.org/cgit/collab-maint/hexchat.git
+Vcs-git: https://anonscm.debian.org/collab-maint/hexchat.git
 Build-Depends:
  debhelper (>= 9.0.0),
  dh-autoreconf,
- imagemagick,
  intltool,
  libcanberra-dev,
  libdbus-glib-1-dev,
@@ -20,15 +19,16 @@ Build-Depends:
  libproxy-dev,
  libssl-dev,
  libtool,
- python-dev
-Standards-Version: 3.9.6
+ python-dev,
+ python3-dev
+Standards-Version: 3.9.7
 Homepage: http://hexchat.github.io/
 
 Package: hexchat
 Architecture: any
 Provides: irc
 Depends: ${misc:Depends}, hexchat-common (= ${source:Version}), ${shlibs:Depends}
-Recommends: gvfs-bin, hexchat-plugins, hexchat-perl, hexchat-python
+Recommends: gvfs-bin, hexchat-plugins, hexchat-perl, hexchat-python3
 Suggests: unifont
 Description: IRC client for X based on X-Chat 2
  HexChat is a graphical IRC client with a GTK+ GUI. Features include Python
@@ -51,8 +51,8 @@ Description: Common files for HexChat
 Package: hexchat-perl
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}
-Replaces: hexchat (<< 2.10.2-1)
-Breaks: hexchat (<< 2.10.2-1)
+Replaces: hexchat (<< 2.10.2-1ubuntu3)
+Breaks: hexchat (<< 2.10.2-1ubuntu3)
 Recommends: hexchat 
 Description: Perl plugin for HexChat
  This package contains the perl plugin for HexChat. Previously included in the 
@@ -60,22 +60,42 @@ Description: Perl plugin for HexChat
  functionality.
 
 Package: hexchat-python
+Depends: hexchat-python3, ${misc:Depends}
+Architecture: all
+Priority: extra
+Section: oldlibs
+Description: transitional dummy package
+ This is a transitional dummy package. It can safely be removed.
+
+Package: hexchat-python2
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}
-Replaces: hexchat (<< 2.10.2-1)
-Breaks: hexchat (<< 2.10.2-1)
+Replaces: hexchat (<< 2.10.2-1), hexchat-python (<< 2.12.0-1)
+Breaks: hexchat (<< 2.10.2-1), hexchat-python (<< 2.12.0-1)
+Conflicts: hexchat-python3
 Recommends: hexchat
 Description: Python 2 plugin for HexChat
  This package contains the Python 2 plugin for HexChat. Previously included in 
  the main HexChat package, it's now separate as it's not actually required for 
- core functionality. It may also enable some future (unsupported) tinkering once
- the switch is made to Python 3. 
+ core functionality.  
+
+Package: hexchat-python3
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Replaces: hexchat (<< 2.10.2-1), hexchat-python (<< 2.12.0-1)
+Breaks: hexchat (<< 2.10.2-1), hexchat-python (<< 2.12.0-1)
+Conflicts: hexchat-python2
+Recommends: hexchat
+Description: Python 3 plugin for HexChat
+ This package contains the Python 3 plugin for HexChat. Previously included in 
+ the main HexChat package, it's now separate as it's not actually required for 
+ core functionality.  
 
 Package: hexchat-plugins
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}
-Replaces: hexchat (<< 2.10.2-1)
-Breaks: hexchat (<< 2.10.2-1)
+Replaces: hexchat (<< 2.12.0-1)
+Breaks: hexchat (<< 2.12.0-1)
 Recommends: hexchat
 Description: Common plugins for HexChat
  This package contains the FiSHLiM, Sysinfo, Do At and Checksum plugins. 

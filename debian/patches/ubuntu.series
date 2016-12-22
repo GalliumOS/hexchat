@@ -1,2 +1,2 @@
-ubuntu_defaults.patch
-no_translation.patch
+0001-Ubuntu-server-defaults.patch 
+0003-build-both-python-plugins.patch

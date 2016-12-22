@@ -1,6 +1,4 @@
-debian/hexchat.xpm usr/share/pixmaps
 usr/bin/hexchat
 usr/share/appdata
 usr/share/applications/hexchat.desktop
-usr/lib/*/pkgconfig/hexchat-plugin.pc
 usr/share/dbus-1
